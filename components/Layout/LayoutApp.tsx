@@ -1,4 +1,5 @@
 import React from 'react'
+import LinkMenu from '../LinkMenu'
 
 interface Props {
     children: React.ReactNode
@@ -13,15 +14,12 @@ const LayoutApp = ({ children }: Props) => {
                         <div className="h-full bg-white dark:bg-gray-700">
                             <div className="flex items-center justify-start pt-6 ml-8">
                                 <p className="text-xl font-bold dark:text-white">
-                                    Plannifer
+                                    Social Media Belt
                                 </p>
                             </div>
                             <nav className="mt-6">
                                 <div>
-                                    <a
-                                        className="flex items-center justify-start w-full p-2 pl-6 my-2 text-gray-800 transition-colors duration-200 border-l-4 border-purple-500 dark:text-white"
-                                        href="#"
-                                    >
+                                    <LinkMenu href="/app">
                                         <span className="text-left">
                                             <svg
                                                 width={20}
@@ -34,9 +32,10 @@ const LayoutApp = ({ children }: Props) => {
                                             </svg>
                                         </span>
                                         <span className="mx-2 text-sm font-normal">
-                                            Home
+                                            Teste
                                         </span>
-                                    </a>
+                                    </LinkMenu>
+
                                     <a
                                         className="flex items-center justify-start w-full p-2 pl-6 my-2 text-gray-400 transition-colors duration-200 border-l-4 border-transparent hover:text-gray-800"
                                         href="#"
@@ -59,10 +58,7 @@ const LayoutApp = ({ children }: Props) => {
                                             </span>
                                         </span>
                                     </a>
-                                    <a
-                                        className="flex items-center justify-start w-full p-2 pl-6 my-2 text-gray-400 transition-colors duration-200 border-l-4 border-transparent hover:text-gray-800"
-                                        href="#"
-                                    >
+                                    <LinkMenu href="/app/links">
                                         <span className="text-left">
                                             <svg
                                                 width={20}
@@ -77,11 +73,9 @@ const LayoutApp = ({ children }: Props) => {
                                         <span className="mx-4 text-sm font-normal">
                                             Resources
                                         </span>
-                                    </a>
-                                    <a
-                                        className="flex items-center justify-start w-full p-2 pl-6 my-2 text-gray-400 transition-colors duration-200 border-l-4 border-transparent hover:text-gray-800"
-                                        href="#"
-                                    >
+                                    </LinkMenu>
+
+                                    <LinkMenu href="/app/settings">
                                         <span className="text-left">
                                             <svg
                                                 width={20}
@@ -94,9 +88,9 @@ const LayoutApp = ({ children }: Props) => {
                                             </svg>
                                         </span>
                                         <span className="mx-4 text-sm font-normal">
-                                            Store feedback
+                                            Configurações
                                         </span>
-                                    </a>
+                                    </LinkMenu>
                                 </div>
                             </nav>
                         </div>

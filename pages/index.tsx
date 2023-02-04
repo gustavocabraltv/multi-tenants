@@ -16,7 +16,7 @@ export default function Home() {
                         <Link href="/app">App</Link>
                     </li>
                     <li>
-                        <Link href="/tenancy">Tenancy</Link>
+                        <Link href="/tenant">Tenant</Link>
                     </li>
                 </ul>
             </main>
