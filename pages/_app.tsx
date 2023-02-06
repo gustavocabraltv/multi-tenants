@@ -23,8 +23,8 @@ export default function App({ Component, pageProps }: AppProps) {
     }
 
     return (
+        //  <pre>{JSON.stringify(pathname)}</pre> // Inserir encima do componente montado (abaixo) para testar.
         <Layout>
-            <pre>{JSON.stringify(pathname)}</pre>
             <Component {...pageProps} />
         </Layout>
     )

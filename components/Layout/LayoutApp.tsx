@@ -32,7 +32,7 @@ const LayoutApp = ({ children }: Props) => {
                                             </svg>
                                         </span>
                                         <span className="mx-2 text-sm font-normal">
-                                            Teste
+                                            Página inicial
                                         </span>
                                     </LinkMenu>
 
@@ -71,7 +71,7 @@ const LayoutApp = ({ children }: Props) => {
                                             </svg>
                                         </span>
                                         <span className="mx-4 text-sm font-normal">
-                                            Resources
+                                            Links
                                         </span>
                                     </LinkMenu>
 
