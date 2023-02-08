@@ -1,0 +1,1 @@
+docker run --name bancodedados -e POSTGRES_PASSWORD=gustavocabral -d -p 8080:5432 postgres
