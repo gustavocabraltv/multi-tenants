@@ -4,8 +4,12 @@ import LayoutTenant from '@/components/Layout/LayoutTenant'
 import '@/styles/globals.css'
 import type { AppProps } from 'next/app'
 import { useRouter } from 'next/router'
+import { SessionProvider } from 'next-auth/react'
 
-export default function App({ Component, pageProps }: AppProps) {
+export default function App({
+    Component,
+    pageProps: { session, ...pageProps },
+}: AppProps) {
     const router = useRouter()
     const { pathname } = router
 
@@ -24,8 +28,10 @@ export default function App({ Component, pageProps }: AppProps) {
 
     return (
         //  <pre>{JSON.stringify(pathname)}</pre> // Inserir encima do componente montado (abaixo) para testar.
-        <Layout>
-            <Component {...pageProps} />
-        </Layout>
+        <SessionProvider session={session}>
+            <Layout>
+                <Component {...pageProps} />
+            </Layout>
+        </SessionProvider>
     )
 }

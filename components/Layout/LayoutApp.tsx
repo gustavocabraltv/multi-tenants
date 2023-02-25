@@ -1,11 +1,49 @@
 import React from 'react'
 import LinkMenu from '../LinkMenu'
+import { useSession, signIn, signOut } from 'next-auth/react'
 
 interface Props {
     children: React.ReactNode
 }
 
 const LayoutApp = ({ children }: Props) => {
+    const { data: session } = useSession()
+
+    function UserName() {
+        if (session) {
+            return (
+                <button className="flex items-center text-gray-500 dark:text-white text-md">
+                    {session?.user?.name}
+                    <svg
+                        width={20}
+                        height={20}
+                        className="ml-2 text-gray-400"
+                        fill="currentColor"
+                        viewBox="0 0 1792 1792"
+                        xmlns="http://www.w3.org/2000/svg"
+                    >
+                        <path d="M1408 704q0 26-19 45l-448 448q-19 19-45 19t-45-19l-448-448q-19-19-19-45t19-45 45-19h896q26 0 45 19t19 45z"></path>
+                    </svg>
+                </button>
+            )
+        } else {
+            return (
+                <button className="flex items-center text-gray-500 dark:text-white text-md">
+                    Charlie Ron
+                    <svg
+                        width={20}
+                        height={20}
+                        className="ml-2 text-gray-400"
+                        fill="currentColor"
+                        viewBox="0 0 1792 1792"
+                        xmlns="http://www.w3.org/2000/svg"
+                    >
+                        <path d="M1408 704q0 26-19 45l-448 448q-19 19-45 19t-45-19l-448-448q-19-19-19-45t19-45 45-19h896q26 0 45 19t19 45z"></path>
+                    </svg>
+                </button>
+            )
+        }
+    }
     return (
         <>
             <main className="relative h-screen overflow-hidden bg-gray-100 dark:bg-gray-800">
@@ -140,23 +178,16 @@ const LayoutApp = ({ children }: Props) => {
                                     <a href="#" className="relative block">
                                         <img
                                             alt="profil"
-                                            src="/images/person/1.jpg"
+                                            src={
+                                                session?.user?.image
+                                                    ? session.user.image
+                                                    : '/placeholder-image.png'
+                                            }
                                             className="mx-auto object-cover rounded-full h-10 w-10 "
                                         />
                                     </a>
-                                    <button className="flex items-center text-gray-500 dark:text-white text-md">
-                                        Charlie R
-                                        <svg
-                                            width={20}
-                                            height={20}
-                                            className="ml-2 text-gray-400"
-                                            fill="currentColor"
-                                            viewBox="0 0 1792 1792"
-                                            xmlns="http://www.w3.org/2000/svg"
-                                        >
-                                            <path d="M1408 704q0 26-19 45l-448 448q-19 19-45 19t-45-19l-448-448q-19-19-19-45t19-45 45-19h896q26 0 45 19t19 45z"></path>
-                                        </svg>
-                                    </button>
+
+                                    <UserName />
                                 </div>
                             </div>
                         </header>
